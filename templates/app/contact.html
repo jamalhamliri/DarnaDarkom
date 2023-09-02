@@ -1,0 +1,47 @@
+{% extends 'elements/layouts/base.html' %}
+{%load static%}
+
+{% block additional_css %}
+
+
+{% endblock %}
+
+{% block message %}
+{% include 'elements/alert.html' %}
+{% endblock %}
+{% block content%}
+<main class="content">
+				<div class="fullwidth-block">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-4 wow fadeInLeft">
+								<h4>Company Name</h4>
+								<ul class="list-fa">
+									<li><i class="fa fa-map-marker"></i> Rabat</li>
+									<li><i class="fa fa-phone"></i> +03934343453</li>
+									<li><i class="fa fa-envelope"></i>contact@companyname.com</li>
+								</ul>
+
+								<form action="#" class="contact-form">
+									<input type="text" placeholder="Your Name...">
+									<input type="text" placeholder="Company Name...">
+									<input type="text" placeholder="Email">
+									<textarea name="" id="" placeholder="Message..."></textarea>
+									<input type="submit" class="button" value="Send Message">
+								</form>
+							</div>
+							<div class="col-md-7 col-md-push-1 wow fadeInRight">
+								<div class="map">
+<iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d115152.15320976134!2d-7.5898434!3d31.7917027!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xda6828f6e3b11f1%3A0x17b7c7d3d99e1d3a!2sRabat%2C%20Morocco!5e0!3m2!1sen!2sus!4v1629874892396!5m2!1sen!2sus" width="600" height="520" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+								</div>
+							</div>
+
+						</div>
+
+					</div>
+
+				</div>
+
+
+			</main>
+{% endblock %}

@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static%}
+    {% load widget_tweaks %}
+
+<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0,maximum-scale=1">
+
+    <title>{% block title %}DarnaDarkom{% endblock %}</title>
+    <link rel="icon" href="{{ MEDIA_URL }}media/Store.ico"  type="image/x-icon">
+
+
+{#    <link rel="stylesheet" href="{%static 'css/bootstrap.min.css'%}">#}
+<link href="http://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,700" rel="stylesheet" type="text/css">
+{#    <script src="https://kit.fontawesome.com/2514aace29.js" crossorigin="anonymous"></script>#}
+{#    <link rel="preconnect" href="https://fonts.googleapis.com">#}
+{#    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>#}
+
+    <!-- CSS only -->
+{#    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">#}
+
+    <link rel="stylesheet" href="{% static 'hover_css/hover-min.css' %}">
+{#    <link rel="stylesheet" href="{% static 'style.css'%}">#}
+{#<link href="fonts/font-awesome.min.css" rel="stylesheet" type="text/css">#}
+		<!-- Loading main css file -->
+		<link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+		<link rel="stylesheet" href="{% static 'style2.css' %}">
+<link href="{% static 'fonts/font-awesome.min.css' %}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="{% static 'style1.css'%}">
+
+
+    {% block additional_css %}
+    {% endblock %}
+</head>
+
+<body >
+    
+    <!-- header start  -->
+   
+        {%include 'elements/header.html' %}
+     <!-- header end -->
+
+     
+
+
+		<div id="site-content">
+            {% block message %}
+            {% endblock %}
+            {% block content %}
+
+            {% endblock %}
+            
+        </div>
+
+  
+    {% include 'elements/footer.html' %}
+
+     <!-- JavaScript Bundle with Popper -->
+{#     <script src="{%static 'js/bootstrap.bundle.js'%}"></script>#}
+<script src="{% static 'js/jquery-1.11.1.min.js' %}"></script>
+		<script src="{% static 'js/min/plugins-min.js' %}"></script>
+		<script src="{% static 'js/min/app-min.js' %}"></script>
+
+
+
+
+     {% block additional_js %}
+     {% endblock %}
+</body>
+</html>

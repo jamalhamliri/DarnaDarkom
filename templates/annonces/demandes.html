@@ -1,0 +1,78 @@
+{% extends 'elements/layouts/base.html' %}
+{%load static%}
+
+{% block additional_css %}
+
+
+{% endblock %}
+{% block page_name %} Offres {% endblock %}
+
+{% block message %}
+{% include 'elements/alert.html' %}
+{% endblock %}
+{% block content%}
+    <main class="content">
+				<div class="fullwidth-block">
+					<div class="container">
+{#						<div class="filter-links filterable-nav">#}
+{#							<select class="mobile-filter">#}
+{#								<option value="*">Show all</option>#}
+{#								<option value=".south-america">South America</option>#}
+{#								<option value=".asia">Asia</option>#}
+{#								<option value=".africa">Africa</option>#}
+{#								<option value=".north-america">North America</option>#}
+{#								<option value=".europe">Europe</option>#}
+{#								<option value=".australia">Australia</option>#}
+{#							</select>#}
+{#							<a href="#" class=" current wow fadeInRight" data-filter="*">Show all</a>#}
+{#							<a href="#" class="wow fadeInRight" data-wow-delay=".2s" data-filter=".south-america">South America</a>#}
+{#							<a href="#" class="wow fadeInRight" data-wow-delay=".4s" data-filter=".asia">Asia</a>#}
+{#							<a href="#" class="wow fadeInRight" data-wow-delay=".6s" data-filter=".africa">Africa</a>#}
+{#							<a href="#" class="wow fadeInRight" data-wow-delay=".8s" data-filter=".north-america">North America</a>#}
+{#							<a href="#" class="wow fadeInRight" data-wow-delay="1s" data-filter=".europe">Europe</a>#}
+{#							<a href="#" class="wow fadeInRight" data-wow-delay="1.2s" data-filter=".australia">Australia</a>#}
+{#						</div>#}
+                        {% for annonce in annonces %}
+						<div class="filterable-items">
+							<div class="filterable-item south-america">
+								<article class="offer-item">
+									<figure class="featured-image">
+                                        {% for photo in photos%}
+								{% if photo.annonce == annonce %}
+								<a href="">
+									<img class="card-img-top img-fluid" style="width : 400px;height : 400px;" src="{{ photo.imageURL }}" alt="Card image cap">
+								</a>
+									{{ "<!--" }}
+								  {%endif%}
+								{%endfor%}
+								{{ "-->" }}
+
+									</figure>
+									<h2 class="entry-title"><a href="#">{{ annonce.title }}</a></h2>
+									<p>{{ annonce.location }}</p>
+                                    <p>{{ annonce.type_hebergement }}</p>
+                                    <p>{{ annonce.description }}</p>
+									<div class="price">
+										<strong>{{ annonce.price}}</strong>
+										<small>/1 Jour</small>
+									</div>
+								</article>
+							</div>
+
+						</div>
+                        {% endfor %}
+
+						<div class="pagination wow fadeInUp">
+							<span class="page-numbers current">1</span>
+							<a href="#" class="page-numbers">2</a>
+							<a href="#" class="page-numbers">3</a>
+							<a href="#" class="page-numbers">4</a>
+						</div>
+
+					</div>
+
+				</div>
+
+
+			</main>
+{% endblock %}

@@ -1,0 +1,204 @@
+{% extends 'elements/layouts/base.html' %}
+{%load static%}
+
+{% block additional_css %}
+
+
+
+{% endblock %}
+
+{% block message %}
+{% include 'elements/alert.html' %}
+{% endblock %}
+{% block content%}
+
+
+
+<main class="content">
+				<div class="slider">
+					<ul class="slides">
+						<li data-background="{% static 'img/sl1.jpg' %}">
+							<div class="container">
+								<div class="slide-caption col-md-4">
+									<h2 class="slide-title">Laissez-nous vous guider vers des expériences de voyage enrichissantes</h2>
+								</div>
+							</div>
+						</li>
+						<li data-background="{% static 'img/sl2.jpg' %}">
+							<div class="container">
+								<div class="slide-caption col-md-4">
+									<h2 class="slide-title">dépensez moins avec notre communauté d'hospitalité gratuites</h2>
+								</div>
+							</div>
+						</li>
+						<li data-background="{% static 'img/sl3.jpg' %}">
+							<div class="container">
+								<div class="slide-caption col-md-4">
+									<h2 class="slide-title">Rejoignez-nous pour vivre des aventures inoubliables sans vous ruiner</h2>
+
+								</div>
+							</div>
+						</li>
+					</ul>
+					<div class="flexslider-controls">
+						<div class="container">
+							<ol class="flex-control-nav">
+								<li><a>1</a></li>
+								<li><a>2</a></li>
+								<li><a>3</a></li>
+							</ol>
+						</div>
+					</div>
+				</div>
+
+				<div class="fullwidth-block features-section">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-3 col-sm-6 col-xs-12">
+								<div class="feature left-icon wow fadeInLeft" data-wow-delay=".3s">
+									<i class="icon-ticket"></i>
+									<h3 class="feature-title">Expérience Personnalisée</h3>
+									<p>Profitez de séjours uniques et personnalisés, loin des logements standardisés. Vivez comme un local et découvrez les trésors cachés de chaque destination.</p>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6 col-xs-12">
+								<div class="feature left-icon wow fadeInLeft">
+									<i class="icon-plane"></i>
+									<h3 class="feature-title">Rencontres Authentiques</h3>
+									<p>Rencontrez des hôtes passionnés qui vous accueilleront dans leur foyer et partageront avec vous leur mode de vie, leurs histoires et leur cuisine locale.</p>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6 col-xs-12">
+								<div class="feature left-icon wow fadeInRight">
+									<i class="icon-jetski"></i>
+									<h3 class="feature-title">Diversité Culturelle</h3>
+									<p>Du nord au sud, d'est en ouest, découvrez une multitude de cultures, de langues et de traditions en vous connectant avec des hôtes de différents horizons.</p>
+								</div>
+							</div>
+							<div class="col-md-3 col-sm-6 col-xs-12">
+								<div class="feature left-icon wow fadeInRight" data-wow-delay=".3s">
+									<i class="icon-shuttelcock"></i>
+									<h3 class="feature-title">Sécurité et Confiance</h3>
+									<p>Nous attachons une grande importance à la sécurité de nos utilisateurs. Chaque hôte est vérifié et les profils sont authentifiés pour vous offrir une expérience fiable et sereine.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="fullwidth-block offers-section" data-bg-color="#f1f1f1">
+					<div class="container">
+						<h2 class="section-title">Les dernières offres de vacances</h2>
+						<div class="row">
+                              {% for offre in offres %}
+
+							<div class="col-md-3 col-sm-6 col-xs-12">
+								<article class="offer wow bounceIn">
+									<figure class="featured-image">
+                                        {% for photo in photos%}
+                                        {% if photo.annonce == offre %}
+
+                                        <a href="">
+                                            <img class="card-img-top img-fluid" style="width : 400px;height : 400px;" src="{{ photo.imageURL }}" alt="Card image cap">
+                                        </a>
+                                            {{ "<!--" }}
+                                          {%endif%}
+                                        {%endfor%}
+                                        {{ "-->" }}
+                                    </figure>
+									<h2 class="entry-title"><a href="">{{ offre.title }}</a></h2>
+                                <p>{{ offre.location }}</p>
+									<p>{{ offre.description }}</p>
+									<a href="#" class="button">See details</a>
+								</article>
+							</div>
+                        {% endfor %}
+
+						</div>
+					</div>
+				</div>
+   <div class="fullwidth-block offers-section" data-bg-color="#f1f1f1">
+					<div class="container">
+						<h2 class="section-title">Les dernières offres de vacances</h2>
+						<div class="row">
+                              {% for offre in demandes %}
+
+							<div class="col-md-3 col-sm-6 col-xs-12">
+								<article class="offer wow bounceIn">
+									<figure class="featured-image">
+                                        {% for photo in photos%}
+                                        {% if photo.annonce == offre %}
+
+                                        <a href="">
+                                            <img class="card-img-top img-fluid" style="width : 400px;height : 400px;" src="{{ photo.imageURL }}" alt="Card image cap">
+                                        </a>
+                                            {{ "<!--" }}
+                                          {%endif%}
+                                        {%endfor%}
+                                        {{ "-->" }}
+                                    </figure>
+									<h2 class="entry-title"><a href="">{{ offre.title }}</a></h2>
+                                <p>{{ offre.location }}</p>
+									<p>{{ offre.description }}</p>
+									<a href="#" class="button">See details</a>
+								</article>
+							</div>
+                        {% endfor %}
+
+						</div>
+					</div>
+				</div>
+
+{#				<div class="fullwidth-block testimonial-section">#}
+{#					<div class="container">#}
+{#						<h2 class="section-title">Testimonials</h2>#}
+{#						<div class="row">#}
+{#							<div class="col-md-3 col-sm-6 col-xs-12">#}
+{#								<div class="testimonial wow fadeInUp">#}
+{#									<figure class="avatar"><img src="{% static 'img/dummy/person-1.jpg' %}" alt=""></figure>#}
+{#									<blockquote class="testimonial-body">#}
+{#										<p>Consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>#}
+{#										<cite>Jessica Tracy</cite>#}
+{#										<span>Creative agency CEO</span>#}
+{#									</blockquote>#}
+{#								</div>#}
+{#							</div>#}
+{#							<div class="col-md-3 col-sm-6 col-xs-12">#}
+{#								<div class="testimonial wow fadeInUp" data-wow-delay=".2s">#}
+{#									<figure class="avatar"><img src="{% static 'img/dummy/person-2.jpg' %}" alt=""></figure>#}
+{#									<blockquote class="testimonial-body">#}
+{#										<p>Consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>#}
+{#										<cite>John Smith</cite>#}
+{#										<span>Traveler</span>#}
+{#									</blockquote>#}
+{#								</div>#}
+{#							</div>#}
+{#							<div class="col-md-3 col-sm-6 col-xs-12">#}
+{#								<div class="testimonial wow fadeInUp" data-wow-delay=".4s">#}
+{#									<figure class="avatar"><img src="{% static 'img/dummy/person-3.jpg' %}" alt=""></figure>#}
+{#									<blockquote class="testimonial-body">#}
+{#										<p>Consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>#}
+{#										<cite>Susan Webb</cite>#}
+{#										<span>Hairdresser</span>#}
+{#									</blockquote>#}
+{#								</div>#}
+{#							</div>#}
+{#							<div class="col-md-3 col-sm-6 col-xs-12">#}
+{#								<div class="testimonial wow fadeInUp" data-wow-delay=".6s">#}
+{#									<figure class="avatar"><img src="{% static 'img/dummy/person-4.jpg' %}" alt=""></figure>#}
+{#									<blockquote class="testimonial-body">#}
+{#										<p>Consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet.</p>#}
+{#										<cite>Sarah Brown</cite>#}
+{#										<span>Athlete</span>#}
+{#									</blockquote>#}
+{#								</div>#}
+{#							</div>#}
+{#						</div>#}
+{#					</div>#}
+{#				</div>#}
+			</main>
+
+
+
+
+{% endblock %}
